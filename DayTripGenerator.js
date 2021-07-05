@@ -1,12 +1,22 @@
+//Day Trip Generator project
+//Make a generator that will randomly select things 
+//for a vacation, and give the user an option to change 
+//options to a different random output
 
+//This function will be used to generate a random number
+//from 0 - how ever long the array is
+function getRandom(array){
+    return array[Math.floor(Math.random()*array.length)];
+}
 
 //Destination examples
 let destinationArray = ["Colorado", "Florida", "Georgia", "Illinois", "California", "Alabama", "Canada", "Gilead", ];
 
 //This function will randomly select
-//a destination for the day trip 
+//a destination for the day trip
+//by calling the getRandom
 function randomDestination(array){
-    return array[Math.floor(Math.random()*array.length)];
+    getRandom(array);
 }
 
 //Restaurant examples
@@ -15,7 +25,7 @@ let restaurantArray = ["T.G.I. Fridays", "Wings n Rings", "Bar Louie", "Mcdonald
 //This function will randomly select
 //a restaurant for the day trip 
 function randomRestaurant(array){
-    return array[Math.floor(Math.random()*array.length)];
+    getRandom(array);
 }
 
 //Transportation examples
@@ -24,7 +34,7 @@ let transportationArray = ["Walk", "Bike", "Plane", "Car", "Bus", "Boat", "Horse
 //This function will randomly select
 //a method of transportation for the day trip 
 function randomTransportation(array){
-    return array[Math.floor(Math.random()*array.length)];
+    getRandom(array);
 }
 
 //Entertainment examples
@@ -33,43 +43,43 @@ let entertainmentArray = ["Movie", "Beach", "Baseball game", "Football game", "V
 //This function will randomly select
 //an entertainment for the day trip
 function randomEntertainment(array){
-    return array[Math.floor(Math.random()*array.length)];
+    getRandom(array);
 }
 
 //This function will allow the user to re-select 
 //Dest, Restr,transp, entertain
 function randomReselect(string){
     if(string === "Destination"){
-        let newDestination = randomDestination(destinationArray);
+        let newDestination = getRandom(destinationArray);
         while(currentDestination == newDestination){
-            newDestination = randomDestination(destinationArray);
+            newDestination = getRandom(destinationArray);
         }
         if(currentDestination != newDestination){
             currentDestination = newDestination;
         } 
     }
     else if(string === "Restaurant"){
-        let newRestaurant = randomRestaurant(restaurantArray);
+        let newRestaurant = getRandom(restaurantArray);
         while(currentRestaurant == newRestaurant){
-            newRestaurant = randomRestaurant(restaurantArray);
+            newRestaurant = getRandom(restaurantArray);
         }    
         if(currentRestaurant != newRestaurant){
             currentRestaurant = newRestaurant;
         }
     }
     else if(string === "Transportation"){
-        let newTransportation = randomTransportation(transportationArray);
+        let newTransportation = getRandom(transportationArray);
         while(currentTransportation == newTransportation){
-            newTransportation = randomTransportation(transportationArray);
+            newTransportation = getRandom(transportationArray);
         }
         if(currentTransportation != newTransportation){
             currentTransportation = newTransportation;
         }
     }
     else if(string === "Entertainment"){
-        let newEntertainment = randomEntertainment(entertainmentArray);
+        let newEntertainment = getRandom(entertainmentArray);
         while(currentEntertainment == newEntertainment){
-            newEntertainment = randomEntertainment(entertainmentArray);
+            newEntertainment = getRandom(entertainmentArray);
         }
         if(currentEntertainment != newEntertainment){
             currentEntertainment = newEntertainment
@@ -81,10 +91,10 @@ function randomReselect(string){
 //This part of the code will allow user prompts to select the proper options
 
 //First random set of options
-let currentDestination = randomDestination(destinationArray);
-let currentRestaurant = randomRestaurant(restaurantArray);
-let currentTransportation = randomTransportation(transportationArray);
-let currentEntertainment = randomEntertainment(entertainmentArray);
+let currentDestination = getRandom(destinationArray);
+let currentRestaurant = getRandom(restaurantArray);
+let currentTransportation = getRandom(transportationArray);
+let currentEntertainment = getRandom(entertainmentArray);
 let userChoice = "No";
 
 while (userChoice === "No"){
@@ -99,4 +109,6 @@ while (userChoice === "No"){
         break;
     }
 }
+
+
 
